@@ -15,7 +15,7 @@ function create_like(success_cb, error_cb) {
 
     $.ajax({
         type: "POST",
-        url: '/insta/like',
+        url: '/like',
         data: {
             post_pk: post_pk
         },
@@ -84,7 +84,7 @@ function create_comment(success_cb, error_cb) {
 
   $.ajax({
     type: "POST",
-    url: '/insta/comment',
+    url: '/comment',
     data: {
       comment_text: comment_text,
       post_pk: post_pk
@@ -125,7 +125,7 @@ function follow_user(success_cb, error_cb, type) {
   
     $.ajax({
       type: "POST",
-      url: '/insta/togglefollow',
+      url: '/togglefollow',
       data: {
         follow_user_pk: follow_user_pk,
         type: type

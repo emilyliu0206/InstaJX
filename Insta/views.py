@@ -133,7 +133,7 @@ def toggleFollow(request):
                 connection = UserConnection(creator=current_user,following=follow_user) 
                 connection.save()
             elif request.POST.get('type') == 'unfollow':
-                UserConnection.objects.filter(creator=current_user,following=follow_user)
+                UserConnection.objects.filter(creator=current_user,following=follow_user).delete()
             result = 1
         else:
             result = 0
