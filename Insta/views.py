@@ -59,6 +59,15 @@ class EditProfile(LoginRequiredMixin,UpdateView):
     template_name = 'edit_profile.html'
     fields = ['username','profile_pic']
     login_url = 'login'
+    success_url = reverse_lazy('posts')
+
+class ExploreView(LoginRequiredMixin, ListView):
+    model = Post
+    template_name = 'explore.html'
+    login_url = 'login'
+
+    def get_queryset(self):
+        return Post.objects.all().order_by('-posted_on')[:20]
 
 @ajax_request
 def addLike(request):

@@ -16,9 +16,14 @@
                         {% endif %}
                         {{ post.author.username }}
                     </a>
+                    <span class="poster__timestamp">
+                        {{ post.posted_on|timesince }}
+                    </span>
                 </div>
             </div>
+            <p class="card__panel-head"> {{ post.title }}</p>
             <a href="{% url 'post_detail' post.id %}">
+                
                 <img class= "card__main-image" src="/{{post.image}}">
             </a>
             <div class="card__panel-body">
